@@ -1,0 +1,6 @@
+for the fail_closed_auto_re-auth
+the configuration file .ovpn must include the line
+
+keepalive 0 0 
+
+(to prevent a timeout from killing the vpn)
