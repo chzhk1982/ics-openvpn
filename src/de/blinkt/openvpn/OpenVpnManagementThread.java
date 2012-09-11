@@ -379,7 +379,9 @@ public class OpenVpnManagementThread implements Runnable {
 			// Set the FileDescriptor to null to stop this mad behavior 
 			mSocket.setFileDescriptorsForSend(null);
 
-			pfd.close();			
+			// TODO 
+			// comment out the following line to keep the FileDescriptor open
+			// pfd.close();			
 
 			return true;
 		} catch (NoSuchMethodException e) {
@@ -390,8 +392,8 @@ public class OpenVpnManagementThread implements Runnable {
 			exp =e;
 		} catch (InvocationTargetException e) {
 			exp =e;
-		} catch (IOException e) {
-			exp =e;
+		// } catch (IOException e) {
+		//	exp =e;
 		}
 		if(exp!=null) {
 			OpenVPN.logMessage(0,"", "Could not send fd over socket:" + exp.getLocalizedMessage());
